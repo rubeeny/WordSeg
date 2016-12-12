@@ -65,4 +65,23 @@ a participant's misuse of the data.
 
 Questions or comments about these data can be sent to Tom Emerson,
 tree@sighan.org.
+运行perl检测 正确率 召回率 F1值
+#perl score ../icwb2-data/gold/pku_training_words.utf8  ../icwb2-data/gold/pku_test_gold.utf8 ../icwb2-data/testing/pku_test_result.utf8
 
+正确率：正确分词数/测试样本的分词总数 召回率：正确分词数/gold测试样本的分词总数
+F1值: 2*正确率*召回率/(正确率+召回率)
+HMM分词测评结果：
+=== SUMMARY:
+=== TOTAL INSERTIONS:   3210
+=== TOTAL DELETIONS:    33279
+=== TOTAL SUBSTITUTIONS:        12455
+=== TOTAL NCHANGE:      48944
+=== TOTAL TRUE WORD COUNT:      104372
+=== TOTAL TEST WORD COUNT:      74303
+=== TOTAL TRUE WORDS RECALL:    0.562
+=== TOTAL TEST WORDS PRECISION: 0.789
+=== F MEASURE:  0.656
+=== OOV Rate:   0.058
+=== OOV Recall Rate:    0.263
+=== IV Recall Rate:     0.580
+###     ../icwb2-data/testing/pku_test_result.utf8      3210    33279   12455   48944   104372  74303   0.562   0.789   0.656   0.058   0.263   0.580

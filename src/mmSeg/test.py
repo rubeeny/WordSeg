@@ -86,21 +86,21 @@ maxWordLength = 0
 
 def loadDictChars(filepath):
     global maxWordLength
-    fsock = file(filepath)
+    fsock = open(filepath)
     for line in fsock.readlines():
         word,freq = line.split(' ')
-        word = unicode(word.strip(), 'utf-8')
+        # word = unicode(word.strip(), 'utf-8')
         dictWord[word] = (len(word), int(freq))
         maxWordLength = maxWordLength < len(word) and len(word) or maxWordLength
     fsock.close()
 
 def loadDictWords(filepath):
     global maxWordLength
-    fsock = file(filepath)
+    fsock = open(filepath)
     for line in fsock.readlines():
         #word = unicode(line.strip(), 'utf-8')
-        txt = unicode(line.strip(), 'utf-8')
-        word = txt.strip()
+        # txt = unicode(line.strip(), 'utf-8')
+        word = line.strip()
         #dictWord[word] = (len(word), 0)
         dictWord[word] = (len(word), 1)
         maxWordLength = maxWordLength < len(word) and len(word) or maxWordLength
@@ -122,10 +122,11 @@ def run():
 class Analysis:
 
     def __init__(self,text):
-        if isinstance(text,unicode):
-            self.text = text
-        else:
-            self.text = text.encode('utf-8')
+        # if isinstance(text,unicode):
+        #     self.text = text
+        # else:
+        #     self.text = text.encode('utf-8')
+        self.text=text
         self.cacheSize = 3
         self.pos = 0
         self.textLength = len(self.text)
@@ -229,7 +230,7 @@ class Analysis:
         #        token += x.text + "/"
         #        length += len(x.text)
         x = word[0]
-        if x.length <> -1:
+        if x.length != -1:
             token += x.text + "/"
             length += len(x.text)
         self.pos += length
@@ -255,7 +256,7 @@ class Analysis:
                             #print word3.length,word3.text
                             if word3.length == -1:
                                 chunk = Chunk(word1,word2)
-                                print "Ture"
+                                print ("Ture")
                             else :
                                 chunk = Chunk(word1,word2,word3)
                             chunks.append(chunk)
@@ -315,4 +316,4 @@ if __name__=="__main__":
     tmp = ""
     for w in wlist:
         tmp += w
-    print tmp
+    print (tmp)

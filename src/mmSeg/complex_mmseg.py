@@ -93,7 +93,7 @@ class CheckChunk:
             ll = chunk.ComLength()
             llen.append(ll)
             maxlen = max(maxlen,ll)
-        for i in xrange(len(llen)):
+        for i in range(len(llen)):
             if llen[i] < maxlen:
                 del self.chunkset[i-pos]
                 pos += 1
@@ -109,7 +109,7 @@ class CheckChunk:
             ll = chunk.AverLength()
             llen.append(ll)
             avelen = max(avelen,ll)
-        for i in xrange(lens):
+        for i in range(lens):
             if llen[i] < avelen:
                 del self.chunkset[i-pos]
                 pos += 1
@@ -130,7 +130,7 @@ class CheckChunk:
                 tmp = 1
             else :
                 rate = min(rate,ll)
-        for i in xrange(lens):
+        for i in range(lens):
             if llen[i] > rate:
                 del self.chunkset[i-pos]
                 pos += 1
@@ -146,7 +146,7 @@ class CheckChunk:
             ll = chunk.CharFreq()
             llen.append(ll)
             lnsum = max(lnsum,ll)
-        for i in xrange(lens):
+        for i in range(lens):
             if llen[i] < lnsum:
                 del self.chunkset[i-pos]
                 pos += 1
@@ -193,7 +193,7 @@ class Handle:
         while self.pos < len(self.text):
             if self.text[self.pos] in num_en.keys():
                 index = self.pos
-                for i in xrange(self.pos,len(self.text),1):
+                for i in range(self.pos,len(self.text),1):
                     if self.text[i] not in num_en.keys():
                         break
                 self.pos = i
